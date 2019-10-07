@@ -18,12 +18,6 @@ int main()
 	float deltaTime = 0;
 	while (window.isOpen())
 	{
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
 		deltaTime = clock.getElapsedTime().asSeconds();
 		if (deltaTime >= frameDelay) {
 			//std::cout << deltaTime << "sec" << std::endl;
