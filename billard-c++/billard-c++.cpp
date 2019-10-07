@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 #define WINDOWS_WIDTH 1920
-#define WINDOWS_HEIGHT 960
+#define WINDOWS_HEIGHT 1080
 #define FRAMERATE 60
 
 int main()
@@ -13,7 +13,6 @@ int main()
     std::cout << "Hello World!\n"; 
 
 	sf::Event event;
-
 	sf::Clock clock;
 	float frameDelay = 1.f / FRAMERATE;//sec
 	float deltaTime = 0;
@@ -32,6 +31,12 @@ int main()
 			//draw
 			window.display();
 			clock.restart();
+		}
+
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
 		}
 	}
 	return 0;
