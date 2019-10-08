@@ -1,16 +1,32 @@
 #include "pch.h"
 #include <iostream>
+#include <windows.h>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 
-#define WINDOWS_WIDTH 1920
-#define WINDOWS_HEIGHT 1080
+#define WINDOWS_WIDTH 1080
+#define WINDOWS_HEIGHT 920
 #define FRAMERATE 60
+
+std::string GetExePath() {
+	char cExeFilePath[256];
+	GetModuleFileNameA(NULL, cExeFilePath, 256);
+	std::string exeFilePath = cExeFilePath;
+	int exeNamePos = exeFilePath.find_last_of("\\/");
+	std::string exePath = exeFilePath.substr(0, exeNamePos + 1);
+	return exePath;
+}
 
 int main()
 {
 
-	sf::RenderWindow window(sf::VideoMode(WINDOWS_WIDTH, WINDOWS_HEIGHT), "Billard C++");
+	sf::RenderWindow window(sf::VideoMode(WINDOWS_WIDTH, WINDOWS_HEIGHT), "Billard C++", sf::Style::None);
     std::cout << "Hello World!\n"; 
+
+	std::string spriteSheetPath = GetExePath() + "Assets/colored.png";
+
+	//Load Tilemap Billard
+	std::string tileMapPath = GetExePath() + "Assets/sample_fantasy.csv";
 
 	sf::Event event;
 	sf::Clock clock;
