@@ -23,7 +23,7 @@
     <ProjectGuid>{17746BCB-01B1-4E83-814B-A575D3DAA379}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>billardc</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
