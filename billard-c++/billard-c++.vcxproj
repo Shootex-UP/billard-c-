@@ -163,11 +163,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ball.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Spritesheet.h" />
     <ClInclude Include="Tilemap.h" />
+    <ClInclude Include="playerBall.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ball.cpp" />
     <ClCompile Include="billard-c++.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -177,6 +180,7 @@
     </ClCompile>
     <ClCompile Include="Spritesheet.cpp" />
     <ClCompile Include="Tilemap.cpp" />
+    <ClCompile Include="playerBall.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
