@@ -1,8 +1,9 @@
 #include "pch.h"
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <windows.h>
 #include <fstream>
-#include <SFML/Graphics.hpp>
+
 
 #define WINDOWS_WIDTH 1080
 #define WINDOWS_HEIGHT 920
