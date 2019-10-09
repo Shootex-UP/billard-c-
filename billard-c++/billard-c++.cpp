@@ -5,11 +5,13 @@
 #include <fstream>
 #include "SpriteSheet.h"
 #include "TileMap.h"
+#include "GameManager.h"
 
 
 #define WINDOWS_WIDTH 1920
 #define WINDOWS_HEIGHT 1080
 #define FRAMERATE 60
+#define PHYSICS_DELTATIME 120
 
 std::string GetExePath() {
 	char cExeFilePath[256];
@@ -28,6 +30,7 @@ int main()
 	windowP = &window;
     std::cout << "Hello World!\n"; 
 
+	GameManager* gameManager = new GameManager(1.f / FRAMERATE, 1.f / PHYSICS_DELTATIME);
 	//Load Spritesheet
 	std::string spriteSheetPath = GetExePath() + "Assets/colored.png";
 	Spritesheet mainSpritesheet(windowP, spriteSheetPath, 1, 16, 32);	// Dans la pile
@@ -42,17 +45,16 @@ int main()
 	float deltaTime = 0;
 	while (window.isOpen())
 	{
-		deltaTime = clock.getElapsedTime().asSeconds();
+		/*deltaTime = clock.getElapsedTime().asSeconds();
 		if (deltaTime >= frameDelay) {
 			//std::cout << deltaTime << "sec" << std::endl;
 			window.clear();
-			
 			//draw
-			mainTilemap.DrawTileMap(&mainSpritesheet);
-
 			window.display();
 			clock.restart();
-		}
+		}*/
+		gameManager->WindowsUpdate();
+		gameManager->PhysicsUpdate();
 
 		while (window.pollEvent(event))
 		{
