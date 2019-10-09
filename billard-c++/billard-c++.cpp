@@ -3,11 +3,15 @@
 #include <iostream>
 #include <windows.h>
 #include <fstream>
+#include "SpriteSheet.h"
+#include "TileMap.h"
+#include "GameManager.h"
 
 
-#define WINDOWS_WIDTH 1080
-#define WINDOWS_HEIGHT 920
+#define WINDOWS_WIDTH 1920
+#define WINDOWS_HEIGHT 1080
 #define FRAMERATE 60
+#define PHYSICS_DELTATIME 120
 
 std::string GetExePath() {
 	char cExeFilePath[256];
@@ -22,12 +26,18 @@ int main()
 {
 
 	sf::RenderWindow window(sf::VideoMode(WINDOWS_WIDTH, WINDOWS_HEIGHT), "Billard C++", sf::Style::None);
+	sf::RenderWindow* windowP;
+	windowP = &window;
     std::cout << "Hello World!\n"; 
 
+	GameManager* gameManager = new GameManager(1.f / FRAMERATE, 1.f / PHYSICS_DELTATIME);
+	//Load Spritesheet
 	std::string spriteSheetPath = GetExePath() + "Assets/colored.png";
+	Spritesheet mainSpritesheet(windowP, spriteSheetPath, 1, 16, 32);	// Dans la pile
 
 	//Load Tilemap Billard
-	std::string tileMapPath = GetExePath() + "Assets/sample_fantasy.csv";
+	std::string tileMapPath = GetExePath() + "Assets/sample_pool1.csv";
+	Tilemap mainTilemap(tileMapPath, 480, 200, 16, 16);
 
 	sf::Event event;
 	sf::Clock clock;
@@ -35,14 +45,16 @@ int main()
 	float deltaTime = 0;
 	while (window.isOpen())
 	{
-		deltaTime = clock.getElapsedTime().asSeconds();
+		/*deltaTime = clock.getElapsedTime().asSeconds();
 		if (deltaTime >= frameDelay) {
 			//std::cout << deltaTime << "sec" << std::endl;
 			window.clear();
 			//draw
 			window.display();
 			clock.restart();
-		}
+		}*/
+		gameManager->WindowsUpdate();
+		gameManager->PhysicsUpdate();
 
 		while (window.pollEvent(event))
 		{
