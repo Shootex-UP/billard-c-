@@ -29,6 +29,11 @@ void GameManager::PhysicsUpdate()
 	float deltaTime = _physicsClock.getElapsedTime().asSeconds();
 	if (deltaTime >= _physicsDeltatime) {
 		std::cout << "Physics update" << deltaTime <<  std::endl;
+		//speed
+		for (int i = 0; i < _ballCount; i++) {
+			_balls[i]._position += _balls[i]._velocity * (_physicsDeltatime * _timeScale);
+		}
+		//check collision
 		for (int i = 0; i < _ballCount; i++)
 		{
 			for (int j = i + 1; j < _ballCount; j++)

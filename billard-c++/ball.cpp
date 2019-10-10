@@ -24,6 +24,20 @@ void ball::DrawBall(Spritesheet* spritesheet)
 	_windowBall->display();
 }
 
+void ball::updatePosition(sf::FloatRect ScreenSpace, float deltatime) {
+	if (!ScreenSpace.intersects(sf::FloatRect(_position.x + (_velocity.x * deltatime) , _position.y + (_velocity.y * deltatime), _radius, _radius))) {
+		if (_position.x - _radius < 0 || _position.x + _radius > ScreenSpace.width) {
+			_velocity.x *= -1;
+		}
+		else if (_position.y - _radius < 0 || _position.y + _radius > ScreenSpace.height) {
+			_velocity.y *= -1;
+		}
+		else {
+			printf("error\n");
+		}
+	}
+	_position = _position + (_velocity * deltatime);
+}
 
 bool ball::colliding(ball ball) {
 	float xd = _position.x - ball._position.x;

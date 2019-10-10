@@ -27,6 +27,8 @@ public:
 	~ball();
 
 	void DrawBall(Spritesheet* spriteSheet);
+	//Physics
+	void updatePosition(sf::FloatRect ScreenSpace, float deltatime);
 	bool colliding(ball ball);
 	void resolveCollision(ball ball);
 };

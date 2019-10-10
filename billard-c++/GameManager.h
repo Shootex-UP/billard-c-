@@ -14,6 +14,7 @@ private:
 	ball* _balls;
 	int _ballCount = 7;
 public:
+	sf::FloatRect _screenSpace = sf::FloatRect(0, 0, 1920, 1080);
 	GameManager(float framerate, float physicsDeltatime);
 	~GameManager();
 	void WindowsUpdate();
