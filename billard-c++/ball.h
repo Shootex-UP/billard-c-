@@ -7,9 +7,10 @@
 
 class ball
 {
-	static Spritesheet _mainSpriteSheet;
-	static float _winHeight;
-	static float _winwidth;
+public:
+	Spritesheet _mySpriteSheet; //static
+	float _winHeight;//static
+	float _winWidth;//static
 
 	std::string _idBall;
 
@@ -20,7 +21,7 @@ class ball
 	sf::RenderWindow* _windowBall;
 
 
-public:
+
 	ball(std::string tileMapPath , std::string idBall);
 	~ball();
 

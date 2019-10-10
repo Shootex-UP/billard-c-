@@ -1,10 +1,11 @@
 #pragma once
 #include "ball.h"
 
-class playerBall:public ball
+class playerBall : public ball
 {
 public:
-	playerBall();
+	playerBall(std::string tileMapPath, std::string idBall);
 	~playerBall();
+	std::string _idBall;
 };
 

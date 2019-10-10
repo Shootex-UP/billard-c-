@@ -2,8 +2,9 @@
 #include "playerBall.h"
 
 
-playerBall::playerBall()
+playerBall::playerBall(std::string tileMapPath, std::string idBall) : ball(tileMapPath, idBall)
 {
+	
 }
 
 

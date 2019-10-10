@@ -6,6 +6,7 @@
 #include "SpriteSheet.h"
 #include "TileMap.h"
 #include "GameManager.h"
+#include "playerBall.h"
 
 
 #define WINDOWS_WIDTH 1920
@@ -36,8 +37,15 @@ int main()
 	Spritesheet mainSpritesheet(windowP, spriteSheetPath, 1, 16, 32);	// Dans la pile
 
 	//Load Tilemap Billard
-	std::string tileMapPath = GetExePath() + "Assets/sample_pool1.csv";
-	Tilemap mainTilemap(tileMapPath, 480, 200, 16, 16);
+	std::string tileMapPath = GetExePath() + "Assets/sample_pool2.csv";
+	Tilemap mainTilemap(tileMapPath, 480, 240, 16, 16);
+
+	//Load Player Ball
+	std::string playerBallPath = GetExePath() + "Assets/sample_bool_white.csv";
+	playerBall mainplayerBall(playerBallPath,"0");
+
+	//Load Ball
+	ball mainball(playerBallPath, "1");
 
 	sf::Event event;
 	sf::Clock clock;
@@ -45,14 +53,15 @@ int main()
 	float deltaTime = 0;
 	while (window.isOpen())
 	{
-		/*deltaTime = clock.getElapsedTime().asSeconds();
+		deltaTime = clock.getElapsedTime().asSeconds();
 		if (deltaTime >= frameDelay) {
 			//std::cout << deltaTime << "sec" << std::endl;
 			window.clear();
 			//draw
 			window.display();
+			mainTilemap.DrawTileMap(&mainSpritesheet);
 			clock.restart();
-		}*/
+		}
 		gameManager->WindowsUpdate();
 		gameManager->PhysicsUpdate();
 
