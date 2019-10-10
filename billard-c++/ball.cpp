@@ -73,7 +73,7 @@ void ball::resolveCollision(ball ball)
 
 	// collision impulse
 	float i = (-(1.0f + 0.85f) * vn) / (im1 + im2);
-	sf::Vector2f impulse = mtd * i;
+	sf::Vector2f impulse = normalize * i;
 
 	// change in momentum
 	_velocity = _velocity + (impulse * im1);
