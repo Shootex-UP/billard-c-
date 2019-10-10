@@ -24,6 +24,6 @@ public:
 	ball(std::string tileMapPath , std::string idBall);
 	~ball();
 
-	void DrawBall(Spritesheet* spriteSheet);
+	void DrawBall(Spritesheet* spritesheet);
 };
 

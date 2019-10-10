@@ -38,14 +38,14 @@ int main()
 
 	//Load Tilemap Billard
 	std::string tileMapPath = GetExePath() + "Assets/sample_pool2.csv";
-	Tilemap mainTilemap(tileMapPath, 480, 240, 16, 16);
+	Tilemap mainTilemap(tileMapPath, 120, 67, 16, 16);
 
 	//Load Player Ball
 	std::string playerBallPath = GetExePath() + "Assets/sample_bool_white.csv";
-	playerBall mainplayerBall(playerBallPath,"0");
+	//playerBall mainplayerBall(playerBallPath,"0");
 
 	//Load Ball
-	ball mainball(playerBallPath, "1");
+	//ball mainball(playerBallPath, "1");
 
 	sf::Event event;
 	sf::Clock clock;
@@ -55,19 +55,19 @@ int main()
 	{
 		deltaTime = clock.getElapsedTime().asSeconds();
 		if (deltaTime >= frameDelay) {
-			//std::cout << deltaTime << "sec" << std::endl;
+			std::cout << deltaTime << "sec" << std::endl;
 			window.clear();
 			//draw
-			window.display();
 			mainTilemap.DrawTileMap(&mainSpritesheet);
 			clock.restart();
+			window.display();
 		}
 		gameManager->WindowsUpdate();
 		gameManager->PhysicsUpdate();
 
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			if (event.type == sf::Event::Closed) //|| sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)
 				window.close();
 		}
 	}
