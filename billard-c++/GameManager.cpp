@@ -21,6 +21,9 @@ void GameManager::WindowsUpdate()
 	float deltaTime = _clock.getElapsedTime().asSeconds();
 	if (deltaTime >= _framerate) {
 		std::cout << "Window update " << deltaTime << std::endl;
+		for (int i = 0; i < _ballCount; i++) {
+			_balls[i]->UpdateWindow();
+		}
 		_clock.restart();
 	}
 }

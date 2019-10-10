@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "ball.h"
-#include "math.h"
 
 ball::ball() {
 
@@ -22,6 +21,11 @@ void ball::DrawBall(Spritesheet* spritesheet)
 	_windowBall->clear();
 	_tileMap->DrawTileMap(spritesheet);
 	_windowBall->display();
+}
+
+void ball::UpdateWindow()
+{
+	_windowBall->setPosition((sf::Vector2i)(_position - sf::Vector2f(_radius, _radius)));
 }
 
 void ball::updatePosition(sf::FloatRect ScreenSpace, float deltatime) {
