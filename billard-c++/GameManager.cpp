@@ -46,3 +46,8 @@ bool GameManager::GetExitFlag()
 {
 	return _exitFlag;
 }
+
+void GameManager::InitWindows()
+{
+
+}

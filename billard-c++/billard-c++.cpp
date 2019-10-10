@@ -3,6 +3,7 @@
 #include <iostream>
 #include <windows.h>
 #include <fstream>
+#include <list> 
 #include "SpriteSheet.h"
 #include "TileMap.h"
 #include "GameManager.h"
@@ -35,6 +36,9 @@ int main()
 	//Load Spritesheet
 	std::string spriteSheetPath = GetExePath() + "Assets/colored.png";
 	Spritesheet mainSpritesheet(windowP, spriteSheetPath, 1, 16, 32);	// Dans la pile
+
+	std::string tab[8];
+	tab[0] = GetExePath() + "Assets/sample_pool2.csv";
 
 	//Load Tilemap Billard
 	std::string tileMapPath = GetExePath() + "Assets/sample_pool2.csv";
