@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "ball.h"
 class GameManager
 {
 private:
@@ -10,7 +11,7 @@ private:
 	float _framerate = 0;
 	float _physicsDeltatime = 0;
 	sf::Event _event;
-	//Ball* Balls[];
+	ball* Balls[];
 public:
 	GameManager(float framerate, float physicsDeltatime);
 	~GameManager();
