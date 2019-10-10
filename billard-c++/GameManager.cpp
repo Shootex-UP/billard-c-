@@ -32,7 +32,7 @@ void GameManager::PhysicsUpdate()
 		std::cout << "Physics update" << deltaTime <<  std::endl;
 		//speed
 		for (int i = 0; i < _ballCount; i++) {
-			_balls[i]._position += _balls[i]._velocity * (_physicsDeltatime * _timeScale);
+			_balls[i]->updatePosition(_screenSpace, _physicsDeltatime * _timeScale);
 		}
 		//check collision
 		for (int i = 0; i < _ballCount; i++)

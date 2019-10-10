@@ -56,28 +56,27 @@ bool ball::colliding(ball ball) {
 	return false;
 }
 
-void ball::resolveCollision(ball ball)
+void ball::resolveCollision(ball* ball)
 {
 	// get the mtd
-	sf::Vector2f delta = _position - ball._position;
+	sf::Vector2f delta = _position - ball->_position;
 	//float d = delta.getLength();
 	float d = sqrt((delta.x * delta.x) + (delta.y * delta.y));
 	// minimum translation distance to push balls apart after intersecting
-	float scalar = ((_radius + ball._radius) - d) / d;
+	float scalar = ((_radius + ball->_radius) - d) / d;
 	sf::Vector2f mtd = delta * scalar;
-void ball::resolveCollision(ball* ball) {
 
 	// resolve intersection --
 	// inverse mass quantities
 	float im1 = 1 / _mass;
-	float im2 = 1 / ball._mass;
+	float im2 = 1 / ball->_mass;
 
 	// push-pull them apart based off their mass
 	_position = _position + mtd * (im1 / (im1 + im2));
-	ball._position = ball._position - mtd * (im2 / (im1 + im2));
+	ball->_position = ball->_position - mtd * (im2 / (im1 + im2));
 
 	// impact speed
-	sf::Vector2f v = _velocity - ball._velocity;
+	sf::Vector2f v = _velocity - ball->_velocity;
 	float magnitude = sqrt((mtd.x * mtd.x) + (mtd.y * mtd.y));
 	sf::Vector2f normalize = sf::Vector2f(mtd.x / magnitude, mtd.y / magnitude);
 	//float vn = v.dot(normalize);
@@ -88,10 +87,10 @@ void ball::resolveCollision(ball* ball) {
 
 	// collision impulse
 	float i = (-(1.0f + 0.85f) * vn) / (im1 + im2);
-	sf::Vector2f impulse = normalize * i;
+	sf::Vector2f impulse = mtd * i;
 
 	// change in momentum
 	_velocity = _velocity + (impulse * im1);
-	ball._velocity = ball._velocity - (impulse * im2);
+	ball->_velocity = ball->_velocity - (impulse * im2);
 
 }
