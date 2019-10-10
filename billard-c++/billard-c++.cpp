@@ -26,6 +26,17 @@ std::string GetExePath() {
 
 int main()
 {
+	std::map<std::string, std::string> mapPath;
+
+	mapPath ["0"] = GetExePath() + "Assets/sample_bool_white.csv";
+
+	mapPath["1"] = GetExePath() + "Assets/sample_bool_1.csv";
+	mapPath["2"] = GetExePath() + "Assets/sample_bool_2.csv";
+	mapPath["3"] = GetExePath() + "Assets/sample_bool_3.csv";
+	mapPath["4"] = GetExePath() + "Assets/sample_bool_4.csv";
+	mapPath["5"] = GetExePath() + "Assets/sample_bool_5.csv";
+	mapPath["6"] = GetExePath() + "Assets/sample_bool_6.csv";
+	mapPath["Pool"] = GetExePath() + "Assets/sample_pool2.csv";
 
 	sf::RenderWindow window(sf::VideoMode(WINDOWS_WIDTH, WINDOWS_HEIGHT), "Billard C++", sf::Style::None);
 	sf::RenderWindow* windowP;
@@ -33,12 +44,13 @@ int main()
     std::cout << "Hello World!\n"; 
 
 	GameManager* gameManager = new GameManager(1.f / FRAMERATE, 1.f / PHYSICS_DELTATIME);
+	gameManager->InitWindows(mapPath);
+
 	//Load Spritesheet
 	std::string spriteSheetPath = GetExePath() + "Assets/colored.png";
 	Spritesheet mainSpritesheet(windowP, spriteSheetPath, 1, 16, 32);	// Dans la pile
 
-	std::string tab[8];
-	tab[0] = GetExePath() + "Assets/sample_pool2.csv";
+
 
 	//Load Tilemap Billard
 	std::string tileMapPath = GetExePath() + "Assets/sample_pool2.csv";

@@ -26,6 +26,6 @@ public:
 
 	void DrawBall(Spritesheet* spriteSheet);
 	bool colliding(ball ball);
-	void resolveCollision(ball ball);
+	void resolveCollision(ball* ball);
 };
 

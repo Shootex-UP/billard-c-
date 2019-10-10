@@ -1,13 +1,14 @@
 #include "pch.h"
 #include "GameManager.h"
 #include <iostream>
+#include <iterator>
 
 
 GameManager::GameManager(float framerate, float physicsDeltatime) : _framerate(framerate), _physicsDeltatime(physicsDeltatime)
 {
 	_clock = sf::Clock();
 	_physicsClock = sf::Clock();
-	_balls = new ball[_ballCount];
+	_balls = new ball*[_ballCount];
 }
 
 
@@ -33,9 +34,9 @@ void GameManager::PhysicsUpdate()
 		{
 			for (int j = i + 1; j < _ballCount; j++)
 			{
-				if (_balls[i].colliding(_balls[j]))
+				if (_balls[i]->colliding((*_balls[j])))
 				{
-					_balls[i].resolveCollision(_balls[j]);
+					_balls[i]->resolveCollision(_balls[j]);
 				}
 			}
 		}
@@ -46,10 +47,10 @@ void GameManager::PhysicsUpdate()
 void GameManager::InputUpdate()
 {
 	sf::Event event;
-	while (_balls[0]._windowBall->pollEvent(event))
+	while (_balls[0]->_windowBall->pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
-			_balls[0]._windowBall->close();
+			_balls[0]->_windowBall->close();
 	}
 }
 
@@ -58,7 +59,14 @@ bool GameManager::GetExitFlag()
 	return _exitFlag;
 }
 
-void GameManager::InitWindows()
+void GameManager::InitWindows(std::map<std::string, std::string> tileMapPathMap)
 {
-
+	std::map<std::string, std::string>::iterator current = tileMapPathMap.begin();
+	int i = 0;
+	while (current != tileMapPathMap.end())
+	{
+		_balls[i] = new ball((*current).second, (*current).first);
+		i++;
+		current++;
+	}
 }

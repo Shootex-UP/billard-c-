@@ -28,6 +28,6 @@ bool ball::colliding(ball ball) {
 	return false;
 }
 
-void ball::resolveCollision(ball ball) {
+void ball::resolveCollision(ball* ball) {
 
 }
