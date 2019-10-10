@@ -8,7 +8,6 @@
 class ball
 {
 public:
-	Spritesheet _mySpriteSheet; //static
 	float _winHeight;//static
 	float _winWidth;//static
 
@@ -25,6 +24,6 @@ public:
 	ball(std::string tileMapPath , std::string idBall);
 	~ball();
 
-	void DrawBall();
+	void DrawBall(Spritesheet* spriteSheet);
 };
 

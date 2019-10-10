@@ -13,9 +13,9 @@ ball::~ball()
 {
 }
 
-void ball::DrawBall()
+void ball::DrawBall(Spritesheet* spritesheet)
 {
 	_windowBall->clear();
-	_tileMap->DrawTileMap(&_mySpriteSheet);
+	_tileMap->DrawTileMap(spritesheet);
 	_windowBall->display();
 }
