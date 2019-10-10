@@ -13,8 +13,10 @@ public:
 
 	std::string _idBall;
 
-	float _winPosX;
-	float _winPosY;
+	sf::Vector2f _position;
+	sf::Vector2f _velocity;
+	float _radius = 48;
+	float _mass = 1;
 
 	Tilemap* _tileMap;
 	sf::RenderWindow* _windowBall;
