@@ -14,7 +14,7 @@ private:
 	float _physicsDeltatime = 0;
 	sf::Event _event;
 	ball** _balls;
-	int _ballCount = 7;
+	int _ballCount = 8;
 public:
 	sf::FloatRect _screenSpace = sf::FloatRect(0, 0, 1920, 1080);
 	GameManager(float framerate, float physicsDeltatime);
