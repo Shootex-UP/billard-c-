@@ -65,6 +65,7 @@ void ball::resolveCollision(ball ball)
 	// minimum translation distance to push balls apart after intersecting
 	float scalar = ((_radius + ball._radius) - d) / d;
 	sf::Vector2f mtd = delta * scalar;
+void ball::resolveCollision(ball* ball) {
 
 	// resolve intersection --
 	// inverse mass quantities
