@@ -34,10 +34,11 @@ void GameManager::PhysicsUpdate()
 
 void GameManager::InputUpdate()
 {
-	while (ball[0]GetWindow()->pollEvent(event))
+	sf::Event event;
+	while (Balls[0]->_windowBall->pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
-			window.close();
+			Balls[0]->_windowBall->close();
 	}
 }
 
