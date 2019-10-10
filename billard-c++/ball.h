@@ -20,10 +20,12 @@ public:
 	sf::RenderWindow* _windowBall;
 
 
-
+	ball();
 	ball(std::string tileMapPath , std::string idBall);
 	~ball();
 
-	void DrawBall(Spritesheet* spritesheet);
+	void DrawBall(Spritesheet* spriteSheet);
+	bool colliding(ball ball);
+	void resolveCollision(ball ball);
 };
 

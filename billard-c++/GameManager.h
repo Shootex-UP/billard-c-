@@ -11,7 +11,8 @@ private:
 	float _framerate = 0;
 	float _physicsDeltatime = 0;
 	sf::Event _event;
-	ball* Balls[];
+	ball* _balls;
+	int _ballCount = 7;
 public:
 	GameManager(float framerate, float physicsDeltatime);
 	~GameManager();

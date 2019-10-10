@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "ball.h"
 
+ball::ball() {
+
+}
 
 ball::ball(std::string tileMapPath, std::string idBall): _idBall(idBall)
 {
@@ -18,4 +21,13 @@ void ball::DrawBall(Spritesheet* spritesheet)
 	_windowBall->clear();
 	_tileMap->DrawTileMap(spritesheet);
 	_windowBall->display();
+}
+
+
+bool ball::colliding(ball ball) {
+	return false;
+}
+
+void ball::resolveCollision(ball ball) {
+
 }
