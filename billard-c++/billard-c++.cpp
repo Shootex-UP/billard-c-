@@ -52,7 +52,7 @@ int main()
 
 	//Load Spritesheet
 	std::string spriteSheetPath = GetExePath() + "Assets/colored.png";
-	Spritesheet mainSpritesheet(windowP, spriteSheetPath, 1, 16, 32);	// Dans la pile
+	Spritesheet mainSpritesheet(spriteSheetPath, 1, 16, 32);	// Dans la pile
 
 
 
@@ -78,7 +78,7 @@ int main()
 			//std::cout << deltaTime << "sec" << std::endl;
 			window.clear();
 			//draw
-			mainTilemap.DrawTileMap(&mainSpritesheet);
+			mainTilemap.DrawTileMap(&mainSpritesheet, windowP);
 			clock.restart();
 			window.display();
 		}
