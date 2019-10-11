@@ -1,10 +1,6 @@
 #include "pch.h"
 #include "ball.h"
 
-ball::ball() {
-
-}
-
 ball::ball(std::string tileMapPath, std::string idBall): _idBall(idBall)
 {
 	_windowBall = new sf::RenderWindow(sf::VideoMode(_winWidth, _winHeight), _idBall, sf::Style::None);
@@ -16,10 +12,10 @@ ball::~ball()
 {
 }
 
-void ball::DrawBall(Spritesheet* spritesheet)
+void ball::DrawBall(Spritesheet* spriteSheet)
 {
 	_windowBall->clear();
-	_tileMap->DrawTileMap(spritesheet, _windowBall);
+	_tileMap->DrawTileMap(spriteSheet, _windowBall);
 	_windowBall->display();
 }
 

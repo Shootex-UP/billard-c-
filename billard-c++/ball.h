@@ -26,7 +26,7 @@ public:
 	ball(std::string tileMapPath , std::string idBall);
 	~ball();
 
-	void DrawBall(Spritesheet* spriteSheet);
+	virtual void DrawBall(Spritesheet* spriteSheet);
 	void UpdateWindow();
 	void SetPos(sf::Vector2f initPos);
 	//Physics

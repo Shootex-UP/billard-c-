@@ -31,7 +31,7 @@ int main()
 {
 	std::map<std::string, std::string> mapPath;
 
-	mapPath ["0"] = GetExePath() + "Assets/sample_bool_white.csv";
+	mapPath["0"] = GetExePath() + "Assets/sample_bool_white.csv";
 
 	mapPath["1"] = GetExePath() + "Assets/sample_bool_1.csv";
 	mapPath["2"] = GetExePath() + "Assets/sample_bool_2.csv";
@@ -47,7 +47,7 @@ int main()
 	std::cout << "Hello World!\n";
 	//window.setPosition(sf::Vector2i(960,540)); //Set la position de la window
 
-	//Load Spritesheet
+	//Init Spritesheet
 	std::string spriteSheetPath = GetExePath() + "Assets/colored.png";
 	Spritesheet mainSpritesheet(spriteSheetPath, 1, 16, 32);	// Dans la pile
 
@@ -63,7 +63,7 @@ int main()
 	Tilemap mainTilemap(tileMapPath, 120, 67, 16, 16);
 
 	//Load Player Ball
-	std::string playerBallPath = GetExePath() + "Assets/sample_bool_white.csv";
+	//std::string playerBallPath = GetExePath() + "Assets/sample_bool_white.csv";
 	//playerBall mainplayerBall(playerBallPath,"0");
 
 	sf::Event event;

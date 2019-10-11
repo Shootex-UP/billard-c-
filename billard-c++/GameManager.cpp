@@ -98,4 +98,5 @@ void GameManager::DrawAllBalls()
 	{
 		_balls[i]->DrawBall(_spritesheet);
 	}
+
 }
