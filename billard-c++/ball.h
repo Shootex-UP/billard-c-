@@ -15,7 +15,7 @@ public:
 
 	sf::Vector2f _position;
 	sf::Vector2f _velocity;
-	float _radius = 48;
+	float _radius = 40;
 	float _mass = 1;
 
 	Tilemap* _tileMap;
@@ -29,6 +29,7 @@ public:
 	void DrawBall(Spritesheet* spriteSheet);
 	void UpdateWindow();
 	void SetPos(sf::Vector2f initPos);
+	void SetVel(sf::Vector2f initVel);
 	//Physics
 	void updatePosition(sf::FloatRect ScreenSpace, float deltatime);
 	bool colliding(ball ball);

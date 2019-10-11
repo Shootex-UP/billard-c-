@@ -80,7 +80,7 @@ void GameManager::InitWindows(std::map<std::string, std::string> tileMapPathMap)
 	}
 }
 
-void GameManager::InitWindowsPos()
+void GameManager::InitBallPos()
 {
 	_balls[0]->SetPos(sf::Vector2f(200, 540));
 
@@ -90,6 +90,11 @@ void GameManager::InitWindowsPos()
 	_balls[4]->SetPos(sf::Vector2f(1600, 340));
 	_balls[5]->SetPos(sf::Vector2f(1600, 540));
 	_balls[6]->SetPos(sf::Vector2f(1600, 740));
+}
+
+void GameManager::InitBallVel()
+{
+	_balls[0]->SetVel(sf::Vector2f(-700,-700));
 }
 
 void GameManager::DrawAllBalls()
