@@ -28,6 +28,7 @@ public:
 
 	void DrawBall(Spritesheet* spriteSheet);
 	void UpdateWindow();
+	void SetPos(sf::Vector2f initPos);
 	//Physics
 	void updatePosition(sf::FloatRect ScreenSpace, float deltatime);
 	bool colliding(ball ball);

@@ -26,6 +26,7 @@ public:
 	void InputUpdate();
 	bool GetExitFlag();
 	void InitWindows(std::map<std::string, std::string> TileMapPathMap);
+	void InitWindowsPos();
 	void DrawAllBalls();
 };
 

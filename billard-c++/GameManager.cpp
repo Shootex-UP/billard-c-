@@ -21,7 +21,7 @@ void GameManager::WindowsUpdate()
 {
 	float deltaTime = _clock.getElapsedTime().asSeconds();
 	if (deltaTime >= _framerate) {
-		std::cout << "Window update " << deltaTime << std::endl;
+		//std::cout << "Window update " << deltaTime << std::endl;
 		for (int i = 0; i < _ballCount; i++) {
 			_balls[i]->UpdateWindow();
 		}
@@ -33,7 +33,7 @@ void GameManager::PhysicsUpdate()
 {
 	float deltaTime = _physicsClock.getElapsedTime().asSeconds();
 	if (deltaTime >= _physicsDeltatime) {
-		std::cout << "Physics update" << deltaTime <<  std::endl;
+		//std::cout << "Physics update" << deltaTime <<  std::endl;
 		//speed
 		for (int i = 0; i < _ballCount; i++) {
 			_balls[i]->updatePosition(_screenSpace, _physicsDeltatime * _timeScale);
@@ -78,6 +78,18 @@ void GameManager::InitWindows(std::map<std::string, std::string> tileMapPathMap)
 		i++;
 		current++;
 	}
+}
+
+void GameManager::InitWindowsPos()
+{
+	_balls[0]->SetPos(sf::Vector2f(200, 540));
+
+	_balls[1]->SetPos(sf::Vector2f(1200, 540));
+	_balls[2]->SetPos(sf::Vector2f(1400, 440));
+	_balls[3]->SetPos(sf::Vector2f(1400, 640));
+	_balls[4]->SetPos(sf::Vector2f(1600, 340));
+	_balls[5]->SetPos(sf::Vector2f(1600, 540));
+	_balls[6]->SetPos(sf::Vector2f(1600, 740));
 }
 
 void GameManager::DrawAllBalls()
