@@ -14,7 +14,7 @@ private:
 	float _physicsDeltatime = 0;
 	sf::Event _event;
 	ball** _balls;
-	int _ballCount = 8;
+	int _ballCount = 7;
 	Spritesheet* _spritesheet;
 
 public:

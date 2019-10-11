@@ -63,9 +63,6 @@ int main()
 	std::string playerBallPath = GetExePath() + "Assets/sample_bool_white.csv";
 	//playerBall mainplayerBall(playerBallPath,"0");
 
-	//Load Ball
-	//ball mainball(playerBallPath, "1");
-
 	sf::Event event;
 	sf::Clock clock;
 	float frameDelay = 1.f / FRAMERATE;//sec
