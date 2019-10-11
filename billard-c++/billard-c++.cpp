@@ -47,14 +47,13 @@ int main()
 	std::cout << "Hello World!\n";
 	//window.setPosition(sf::Vector2i(960,540)); //Set la position de la window
 
-	GameManager* gameManager = new GameManager(1.f / FRAMERATE, 1.f / PHYSICS_DELTATIME);
-	gameManager->InitWindows(mapPath);
-
 	//Load Spritesheet
 	std::string spriteSheetPath = GetExePath() + "Assets/colored.png";
 	Spritesheet mainSpritesheet(spriteSheetPath, 1, 16, 32);	// Dans la pile
 
-
+	//Init GameManager
+	GameManager* gameManager = new GameManager(1.f / FRAMERATE, 1.f / PHYSICS_DELTATIME, spriteSheetPath);
+	gameManager->InitWindows(mapPath);
 
 	//Load Tilemap Billard
 	std::string tileMapPath = GetExePath() + "Assets/sample_pool2.csv";
@@ -79,6 +78,9 @@ int main()
 			window.clear();
 			//draw
 			mainTilemap.DrawTileMap(&mainSpritesheet, windowP);
+
+			gameManager->DrawAllBalls();
+
 			clock.restart();
 			window.display();
 		}

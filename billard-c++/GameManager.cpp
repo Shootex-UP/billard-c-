@@ -4,11 +4,12 @@
 #include <iterator>
 
 
-GameManager::GameManager(float framerate, float physicsDeltatime) : _framerate(framerate), _physicsDeltatime(physicsDeltatime)
+GameManager::GameManager(float framerate, float physicsDeltatime, std::string spriteSheetPath) : _framerate(framerate), _physicsDeltatime(physicsDeltatime)
 {
 	_clock = sf::Clock();
 	_physicsClock = sf::Clock();
 	_balls = new ball*[_ballCount];
+	_spritesheet = new Spritesheet(spriteSheetPath, 1, 16, 32);
 }
 
 
@@ -76,5 +77,13 @@ void GameManager::InitWindows(std::map<std::string, std::string> tileMapPathMap)
 		_balls[i] = new ball((*current).second, (*current).first);
 		i++;
 		current++;
+	}
+}
+
+void GameManager::DrawAllBalls()
+{
+	for (int i = 0; i < _ballCount; i++)
+	{
+		_balls[i]->DrawBall(_spritesheet);
 	}
 }

@@ -15,14 +15,17 @@ private:
 	sf::Event _event;
 	ball** _balls;
 	int _ballCount = 8;
+	Spritesheet* _spritesheet;
+
 public:
 	sf::FloatRect _screenSpace = sf::FloatRect(0, 0, 1920, 1080);
-	GameManager(float framerate, float physicsDeltatime);
+	GameManager(float framerate, float physicsDeltatime, std::string spriteSheetPath);
 	~GameManager();
 	void WindowsUpdate();
 	void PhysicsUpdate();
 	void InputUpdate();
 	bool GetExitFlag();
 	void InitWindows(std::map<std::string, std::string> TileMapPathMap);
+	void DrawAllBalls();
 };
 
