@@ -11,3 +11,5 @@ playerBall::playerBall(std::string tileMapPath, std::string idBall) : ball(tileM
 playerBall::~playerBall()
 {
 }
+
+
