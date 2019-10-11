@@ -54,7 +54,7 @@ void Tilemap::DrawTileMap(Spritesheet* spriteSheet, sf::RenderWindow* targetWind
 		for (int j = 0; j < _mapWidth; ++j) {
 			spriteRawIndex = _mapData[i][j];
 			spriteIndex = spriteRawIndex & ~(_FLIPPED_HORIZONTALLY_FLAG | _FLIPPED_VERTICALLY_FLAG | _FLIPPED_DIAGONALLY_FLAG);
-			spriteIndex--;
+			//spriteIndex--;
 			bool flipH = (spriteRawIndex & _FLIPPED_HORIZONTALLY_FLAG) == _FLIPPED_HORIZONTALLY_FLAG;
 			bool flipV = (spriteRawIndex & _FLIPPED_VERTICALLY_FLAG) == _FLIPPED_VERTICALLY_FLAG;
 			bool flipD = (spriteRawIndex & _FLIPPED_DIAGONALLY_FLAG) == _FLIPPED_DIAGONALLY_FLAG;

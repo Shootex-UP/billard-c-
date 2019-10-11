@@ -10,8 +10,8 @@
 #include "playerBall.h"
 
 
-#define WINDOWS_WIDTH 960
-#define WINDOWS_HEIGHT 540
+#define WINDOWS_WIDTH 1600
+#define WINDOWS_HEIGHT 900
 #define FRAMERATE 60
 #define PHYSICS_DELTATIME 120
 
