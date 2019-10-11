@@ -82,10 +82,9 @@ void GameManager::InitWindows(std::map<std::string, std::string> tileMapPathMap)
 		else
 		{
 			_balls[i] = new ball((*current).second, (*current).first);
-			i++;
-			current++;
 		}
-
+		i++;
+		current++;
 	}
 }
 
