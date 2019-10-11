@@ -8,8 +8,8 @@
 class ball
 {
 public:
-	float _winHeight;//static
-	float _winWidth;//static
+	int _winHeight = 80;//static
+	int _winWidth = 80;//static
 
 	std::string _idBall;
 
