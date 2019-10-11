@@ -45,7 +45,7 @@ Tilemap::~Tilemap()
 {
 }
 
-void Tilemap::DrawTileMap(Spritesheet* spriteSheet) {
+void Tilemap::DrawTileMap(Spritesheet* spriteSheet, sf::RenderWindow* targetWindow) {
 	unsigned long spriteRawIndex = 0;
 	unsigned long spriteIndex = 0;
 	int x = 0;
@@ -60,7 +60,7 @@ void Tilemap::DrawTileMap(Spritesheet* spriteSheet) {
 			bool flipD = (spriteRawIndex & _FLIPPED_DIAGONALLY_FLAG) == _FLIPPED_DIAGONALLY_FLAG;
 			x = j * _tileHeight;
 			y = i * _tileWidth;
-			spriteSheet->DrawSprite(spriteIndex, x, y, flipH, flipV, flipD);
+			spriteSheet->DrawSprite(spriteIndex, x, y, flipH, flipV, flipD, targetWindow);
 		}
 	}
 }

@@ -18,6 +18,6 @@ private:
 public:
 	Tilemap(std::string tileMapPath, int mapWidth, int mapHeight, int tileWidth, int tileHeight);
 	~Tilemap();
-	void DrawTileMap(Spritesheet* spriteSheet);
+	void DrawTileMap(Spritesheet*, sf::RenderWindow* targetWindow);
 };
 

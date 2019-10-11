@@ -8,7 +8,7 @@ ball::ball() {
 ball::ball(std::string tileMapPath, std::string idBall): _idBall(idBall)
 {
 	_windowBall = new sf::RenderWindow(sf::VideoMode(_winWidth, _winHeight), _idBall, sf::Style::None);
-	_tileMap = new Tilemap(tileMapPath, 48, 24, 16, 16);
+	_tileMap = new Tilemap(tileMapPath, 5, 5, 16, 16);
 }
 
 
@@ -19,7 +19,7 @@ ball::~ball()
 void ball::DrawBall(Spritesheet* spritesheet)
 {
 	_windowBall->clear();
-	_tileMap->DrawTileMap(spritesheet);
+	_tileMap->DrawTileMap(spritesheet, _windowBall);
 	_windowBall->display();
 }
 

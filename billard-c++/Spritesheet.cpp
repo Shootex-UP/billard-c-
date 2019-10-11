@@ -2,8 +2,8 @@
 #include "Spritesheet.h"
 
 
-Spritesheet::Spritesheet(sf::RenderWindow* renderer, std::string texturePath, int gridOffset, int gridCellSize, int gridNbCellsX) :
-	_renderer(renderer), _texturePath(texturePath), _gridOffset(gridOffset), _gridCellSize(gridCellSize), _gridNbCellsX(gridNbCellsX)
+Spritesheet::Spritesheet(std::string texturePath, int gridOffset, int gridCellSize, int gridNbCellsX) :
+	_texturePath(texturePath), _gridOffset(gridOffset), _gridCellSize(gridCellSize), _gridNbCellsX(gridNbCellsX)
 {
 	_texture.loadFromFile(texturePath);
 }
@@ -12,7 +12,7 @@ Spritesheet::~Spritesheet()
 {
 }
 
-void Spritesheet::DrawSprite(int spriteIndex, int x, int y, bool flipH, bool flipV, bool flipD)
+void Spritesheet::DrawSprite(int spriteIndex, int x, int y, bool flipH, bool flipV, bool flipD, sf::RenderWindow* targetWindow)
 {
 	int spriteGridX = spriteIndex % _gridNbCellsX;
 	int spriteGridY = floor(spriteIndex / _gridNbCellsX);
@@ -46,5 +46,5 @@ void Spritesheet::DrawSprite(int spriteIndex, int x, int y, bool flipH, bool fli
 	_sprite.setRotation(angle);
 
 
-	(*_renderer).draw(_sprite);
+	(*targetWindow).draw(_sprite);
 }

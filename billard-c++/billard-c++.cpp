@@ -39,7 +39,7 @@ int main()
 	mapPath["4"] = GetExePath() + "Assets/sample_bool_4.csv";
 	mapPath["5"] = GetExePath() + "Assets/sample_bool_5.csv";
 	mapPath["6"] = GetExePath() + "Assets/sample_bool_6.csv";
-	mapPath["Pool"] = GetExePath() + "Assets/sample_pool2.csv";
+	//mapPath["Pool"] = GetExePath() + "Assets/sample_pool2.csv";
 
 	sf::RenderWindow window(sf::VideoMode(WINDOWS_WIDTH, WINDOWS_HEIGHT), "Billard C++", sf::Style::None);
 	sf::RenderWindow* windowP;
