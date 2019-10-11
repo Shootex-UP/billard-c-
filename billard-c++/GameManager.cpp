@@ -74,9 +74,18 @@ void GameManager::InitWindows(std::map<std::string, std::string> tileMapPathMap)
 	int i = 0;
 	while (current != tileMapPathMap.end())
 	{
-		_balls[i] = new ball((*current).second, (*current).first);
-		i++;
-		current++;
+		if (current == tileMapPathMap.begin())
+		{
+			player = new playerBall((*current).second, (*current).first);
+			_balls[i] = player;
+		}
+		else
+		{
+			_balls[i] = new ball((*current).second, (*current).first);
+			i++;
+			current++;
+		}
+
 	}
 }
 

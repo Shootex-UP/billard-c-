@@ -3,6 +3,7 @@
 #include <string>
 #include <list>
 #include "ball.h"
+#include "playerBall.h"
 class GameManager
 {
 private:
@@ -14,6 +15,7 @@ private:
 	float _physicsDeltatime = 0;
 	sf::Event _event;
 	ball** _balls;
+	playerBall* player;
 	int _ballCount = 7;
 	Spritesheet* _spritesheet;
 
