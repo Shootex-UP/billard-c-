@@ -10,8 +10,8 @@
 #include "playerBall.h"
 
 
-#define WINDOWS_WIDTH 1600
-#define WINDOWS_HEIGHT 900
+#define WINDOWS_WIDTH 1920
+#define WINDOWS_HEIGHT 1080
 #define FRAMERATE 60
 #define PHYSICS_DELTATIME 120
 
@@ -55,6 +55,9 @@ int main()
 	GameManager* gameManager = new GameManager(1.f / FRAMERATE, 1.f / PHYSICS_DELTATIME, spriteSheetPath);
 	gameManager->InitWindows(mapPath);
 
+	//Init WinPos
+	gameManager->InitWindowsPos();
+
 	//Load Tilemap Billard
 	std::string tileMapPath = GetExePath() + "Assets/sample_pool2.csv";
 	Tilemap mainTilemap(tileMapPath, 120, 67, 16, 16);
@@ -84,8 +87,8 @@ int main()
 			clock.restart();
 			window.display();
 		}
-		//gameManager->WindowsUpdate();
-		//gameManager->PhysicsUpdate();
+		gameManager->WindowsUpdate();
+		gameManager->PhysicsUpdate();
 
 		while (window.pollEvent(event))
 		{

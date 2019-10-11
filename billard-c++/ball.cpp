@@ -28,6 +28,11 @@ void ball::UpdateWindow()
 	_windowBall->setPosition((sf::Vector2i)(_position - sf::Vector2f(_radius, _radius)));
 }
 
+void ball::SetPos(sf::Vector2f initPos)
+{
+	_position = initPos;
+}
+
 void ball::updatePosition(sf::FloatRect ScreenSpace, float deltatime) {
 	if (!ScreenSpace.intersects(sf::FloatRect(_position.x + (_velocity.x * deltatime) , _position.y + (_velocity.y * deltatime), _radius, _radius))) {
 		if (_position.x - _radius < 0 || _position.x + _radius > ScreenSpace.width) {
@@ -98,3 +103,5 @@ void ball::resolveCollision(ball* ball)
 	ball->_velocity = ball->_velocity - (impulse * im2);
 
 }
+
+
