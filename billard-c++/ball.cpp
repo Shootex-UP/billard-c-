@@ -29,12 +29,18 @@ void ball::SetPos(sf::Vector2f initPos)
 	_position = initPos;
 }
 
+void ball::SetVel(sf::Vector2f initVel)
+{
+	_velocity = initVel;
+}
+
 void ball::updatePosition(sf::FloatRect ScreenSpace, float deltatime) {
-	if (!ScreenSpace.intersects(sf::FloatRect(_position.x + (_velocity.x * deltatime) , _position.y + (_velocity.y * deltatime), _radius, _radius))) {
-		if (_position.x - _radius < 0 || _position.x + _radius > ScreenSpace.width) {
+	sf::Vector2f nexPos((_position.x + (_velocity.x * deltatime)), (_position.y + (_velocity.y * deltatime)));
+	if ((nexPos.x - _radius < 0 || nexPos.x + _radius > ScreenSpace.width) || (nexPos.y - _radius < 0 || nexPos.y + _radius > ScreenSpace.height)) {
+		if (nexPos.x - _radius < 0 || nexPos.x + _radius > ScreenSpace.width) {
 			_velocity.x *= -1;
 		}
-		else if (_position.y - _radius < 0 || _position.y + _radius > ScreenSpace.height) {
+		else if (nexPos.y - _radius < 0 || nexPos.y + _radius > ScreenSpace.height) {
 			_velocity.y *= -1;
 		}
 		else {
