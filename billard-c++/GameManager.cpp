@@ -82,7 +82,7 @@ void GameManager::InitWindows(std::map<std::string, std::string> tileMapPathMap)
 		else
 		{
 			_balls[i] = new ball((*current).second, (*current).first);
-		}
+		}	
 		i++;
 		current++;
 	}
@@ -102,7 +102,9 @@ void GameManager::InitBallPos()
 
 void GameManager::InitBallVel()
 {
-	_balls[0]->SetVel(sf::Vector2f(-700,-700));
+	_balls[0]->SetVel(sf::Vector2f(700,0));
+	_balls[1]->SetVel(sf::Vector2f(2500, 250));
+	_balls[3]->SetVel(sf::Vector2f(100, -500));
 }
 
 void GameManager::DrawAllBalls()

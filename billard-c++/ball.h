@@ -16,7 +16,7 @@ public:
 	sf::Vector2f _position;
 	sf::Vector2f _velocity;
 	float _radius = 40;
-	float _mass = 1;
+	float _mass = 10;
 
 	Tilemap* _tileMap;
 	sf::RenderWindow* _windowBall;
