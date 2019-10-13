@@ -55,7 +55,7 @@ int main()
 
 	//Init WinPos
 	gameManager->InitBallPos();
-	gameManager->InitBallVel();
+	//gameManager->InitBallVel();
 
 	//Load Tilemap Billard
 	std::string tileMapPath = GetExePath() + "Assets/sample_pool2.csv";
@@ -89,7 +89,7 @@ int main()
 
 			if (event.type == sf::Event::MouseButtonPressed)
 			{
-				if (event.mouseButton.button == sf::Mouse::Right)
+				if (event.mouseButton.button == sf::Mouse::Left)
 				{
 					gameManager->player->Shoot();
 					std::cout << "SHHOOOOOOOOOOOOOT" << std::endl;
