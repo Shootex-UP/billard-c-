@@ -14,9 +14,35 @@ ball::~ball()
 
 void ball::DrawBall(Spritesheet* spriteSheet)
 {
+	if (_idBall == "1")
+	{
+		sf::VertexArray line(sf::LinesStrip, 2);
+		line[0].position = sf::Vector2f(10, -5);
+		line[0].color = sf::Color::Red;
+		line[1].position = sf::Vector2f(20, -5);
+		line[1].color = sf::Color::Red;
+		_windowBall->draw(line);
+	}
 	_windowBall->clear();
+	//DrawLine(GetMousePos());
 	_tileMap->DrawTileMap(spriteSheet, _windowBall);
 	_windowBall->display();
+}
+
+void ball::DrawLine(sf::Vector2i _position)
+{
+	sf::RectangleShape line(sf::Vector2f(5, 5));
+	line.setPosition(20, 20);
+	line.setSize(sf::Vector2f(100, 100));
+	line.setFillColor(sf::Color::Red);
+	_windowBall->draw(line);
+}
+
+sf::Vector2i ball::GetMousePos()
+{
+	// get global mouse position
+	sf::Vector2i mousePos = sf::Mouse::getPosition();
+	return mousePos;
 }
 
 void ball::UpdateWindow()

@@ -21,12 +21,13 @@ public:
 	Tilemap* _tileMap;
 	sf::RenderWindow* _windowBall;
 
-
-	ball();
 	ball(std::string tileMapPath , std::string idBall);
 	~ball();
 
 	virtual void DrawBall(Spritesheet* spriteSheet);
+	void DrawLine(sf::Vector2i _position);
+	sf::Vector2i GetMousePos();
+
 	void UpdateWindow();
 	void SetPos(sf::Vector2f initPos);
 	void SetVel(sf::Vector2f initVel);
