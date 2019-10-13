@@ -19,6 +19,15 @@ ball::~ball()
 
 void ball::DrawBall(Spritesheet* spriteSheet)
 {
+	_windowBall->clear();
+	DrawLine(GetMousePos());
+	_tileMap->DrawTileMap(spriteSheet, _windowBall);
+	_windowBall->display();
+}
+
+void ball::DrawLine(sf::Vector2i _position)
+{
+	//Test avec vertex
 	if (_idBall == "1")
 	{
 		sf::VertexArray line(sf::LinesStrip, 2);
@@ -28,14 +37,8 @@ void ball::DrawBall(Spritesheet* spriteSheet)
 		line[1].color = sf::Color::Red;
 		_windowBall->draw(line);
 	}
-	_windowBall->clear();
-	//DrawLine(GetMousePos());
-	_tileMap->DrawTileMap(spriteSheet, _windowBall);
-	_windowBall->display();
-}
 
-void ball::DrawLine(sf::Vector2i _position)
-{
+	//Test avec shape rect
 	sf::RectangleShape line(sf::Vector2f(5, 5));
 	line.setPosition(20, 20);
 	line.setSize(sf::Vector2f(100, 100));
