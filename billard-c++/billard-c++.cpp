@@ -111,8 +111,7 @@ int main()
 			{
 				if (event.mouseButton.button == sf::Mouse::Left)
 				{
-					gameManager->player->Shoot();
-					nbHits++;
+					gameManager->player->Shoot(&nbHits);
 					nbHitsText.setString(std::to_string(nbHits));
 				}
 			}

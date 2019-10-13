@@ -39,8 +39,11 @@ sf::Vector2i playerBall::GetMousePos()
 	return mousePos;
 }
 
-void playerBall::Shoot()
+void playerBall::Shoot(int* nbHits)
 {
-	if(canShoot)
+	if (canShoot)
+	{
 		SetVel((sf::Vector2f)(GetMousePos() * 4));
+		(*nbHits)++;
+	}
 }

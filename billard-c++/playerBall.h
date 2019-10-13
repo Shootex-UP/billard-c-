@@ -11,6 +11,6 @@ public:
 	sf::Vector2i GetMousePos();
 	std::string _idBall;
 
-	void Shoot();
+	void Shoot(int* nbHits);
 };
 
