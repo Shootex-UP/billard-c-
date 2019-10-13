@@ -39,13 +39,11 @@ int main()
 	mapPath["4"] = GetExePath() + "Assets/sample_bool_4.csv";
 	mapPath["5"] = GetExePath() + "Assets/sample_bool_5.csv";
 	mapPath["6"] = GetExePath() + "Assets/sample_bool_6.csv";
-	//mapPath["Pool"] = GetExePath() + "Assets/sample_pool2.csv";
 
 	sf::RenderWindow window(sf::VideoMode(WINDOWS_WIDTH, WINDOWS_HEIGHT), "Billard C++", sf::Style::None);
 	sf::RenderWindow* windowP;
 	windowP = &window;
 	std::cout << "Hello World!\n";
-	//window.setPosition(sf::Vector2i(960,540)); //Set la position de la window
 
 	//Init Spritesheet
 	std::string spriteSheetPath = GetExePath() + "Assets/colored.png";
@@ -57,15 +55,11 @@ int main()
 
 	//Init WinPos
 	gameManager->InitBallPos();
-	gameManager->InitBallVel();
+	//gameManager->InitBallVel();
 
 	//Load Tilemap Billard
 	std::string tileMapPath = GetExePath() + "Assets/sample_pool2.csv";
 	Tilemap mainTilemap(tileMapPath, 120, 67, 16, 16);
-
-	//Load Player Ball
-	//std::string playerBallPath = GetExePath() + "Assets/sample_bool_white.csv";
-	//playerBall mainplayerBall(playerBallPath,"0");
 
 	sf::Event event;
 	sf::Clock clock;
