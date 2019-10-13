@@ -38,3 +38,8 @@ sf::Vector2i playerBall::GetMousePos()
 	sf::Vector2i mousePos = sf::Mouse::getPosition(*_windowBall);
 	return mousePos;
 }
+
+void playerBall::Shoot()
+{
+	SetVel((sf::Vector2f)(GetMousePos()));
+}

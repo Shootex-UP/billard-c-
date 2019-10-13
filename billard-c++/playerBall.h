@@ -10,5 +10,7 @@ public:
 	void DrawBall(Spritesheet* spriteSheet) override;
 	sf::Vector2i GetMousePos();
 	std::string _idBall;
+
+	void Shoot();
 };
 

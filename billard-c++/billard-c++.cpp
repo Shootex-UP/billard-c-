@@ -86,6 +86,15 @@ int main()
 		{
 			if (event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape)
 				window.close();
+
+			if (event.type == sf::Event::MouseButtonPressed)
+			{
+				if (event.mouseButton.button == sf::Mouse::Right)
+				{
+					gameManager->player->Shoot();
+					std::cout << "SHHOOOOOOOOOOOOOT" << std::endl;
+				}
+			}
 		}
 	}
 	return 0;
