@@ -61,6 +61,24 @@ int main()
 	std::string tileMapPath = GetExePath() + "Assets/sample_pool2.csv";
 	Tilemap mainTilemap(tileMapPath, 120, 67, 16, 16);
 
+
+	int nbHits = 0;
+	//Init Font
+	sf::Font nbHitsFont;
+	//nbHitsFont.loadFromFile(GetExePath() + "Assets/arial.ttf");
+	if (!nbHitsFont.loadFromFile(GetExePath() + "Assets/arial.ttf"))
+	{
+		std::cout << "falied load font !" << std::endl;
+	}
+
+	sf::Text nbHitsText;
+	nbHitsText.setFont(nbHitsFont);
+	nbHitsText.setCharacterSize(50);
+	nbHitsText.setStyle(sf::Text::Bold);
+	//nbHitsText.setColor(sf::Color::Red);
+	nbHitsText.setString(std::to_string(nbHits));
+
+
 	sf::Event event;
 	sf::Clock clock;
 	float frameDelay = 1.f / FRAMERATE;//sec
@@ -75,6 +93,8 @@ int main()
 			mainTilemap.DrawTileMap(&mainSpritesheet, windowP);
 
 			gameManager->DrawAllBalls();
+
+			window.draw(nbHitsText);
 
 			clock.restart();
 			window.display();
@@ -92,6 +112,8 @@ int main()
 				if (event.mouseButton.button == sf::Mouse::Left)
 				{
 					gameManager->player->Shoot();
+					nbHits++;
+					nbHitsText.setString(std::to_string(nbHits));
 				}
 			}
 		}
