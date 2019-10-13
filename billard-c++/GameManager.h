@@ -15,7 +15,6 @@ private:
 	float _physicsDeltatime = 0;
 	sf::Event _event;
 	ball** _balls;
-	playerBall* player;
 	int _ballCount = 7;
 	Spritesheet* _spritesheet;
 	sf::FloatRect holes[6] = {
@@ -39,5 +38,6 @@ public:
 	void InitBallPos();
 	void InitBallVel();
 	void DrawAllBalls();
+	playerBall* player;
 };
 
