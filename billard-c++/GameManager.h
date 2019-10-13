@@ -10,7 +10,7 @@ private:
 	bool _exitFlag = false;
 	sf::Clock _clock;
 	sf::Clock _physicsClock;
-	float _timeScale = 1;
+	float _timeScale = 1.f;
 	float _framerate = 0;
 	float _physicsDeltatime = 0;
 	sf::Event _event;

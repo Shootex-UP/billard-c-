@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "ball.h"
 
+#define PHYSICS_FRICTION 0.05f
+
 ball::ball(std::string tileMapPath, std::string idBall): _idBall(idBall)
 {
 	_windowBall = new sf::RenderWindow(sf::VideoMode(_winWidth, _winHeight), _idBall, sf::Style::None);
@@ -74,6 +76,7 @@ void ball::updatePosition(sf::FloatRect ScreenSpace, float deltatime) {
 		}
 	}
 	_position = _position + (_velocity * deltatime);
+	_velocity *= 1 - PHYSICS_FRICTION;
 }
 
 bool ball::colliding(ball ball) {
@@ -93,13 +96,14 @@ bool ball::colliding(ball ball) {
 	return false;
 }
 
+//Source http://www.vobarian.com/collisions/2dcollisions2.pdf
 void ball::resolveCollision(ball* ball)
 {
 	// Compute unit normal and unit tangent vectors
-	sf::Vector2f v_n(ball->_position - _position); // v_n = normal vec. - a vector normal to the collision surface
+	sf::Vector2f v_n(ball->_position - _position); // vector normal to the collision surface
 
 	sf::Vector2f v_un(0,0);// unit normal vector
-	double mag = std::sqrt(v_n.x * v_n.x + v_n.y * v_n.y);
+	double mag = std::sqrt(v_n.x * v_n.x + v_n.y * v_n.y);//magnitude
 	if (mag != 0.)
 		v_un = sf::Vector2f(v_n.x / mag, v_n.y / mag);
 
