@@ -27,14 +27,35 @@ void ball::DrawBall(Spritesheet* spriteSheet)
 
 void ball::DrawLine(sf::Vector2i _position)
 {
+	//Test avec vertex
+	if (_idBall == "1")
+	{
+		sf::VertexArray line(sf::LinesStrip, 2);
+		line[0].position = sf::Vector2f(10, -5);
+		line[0].color = sf::Color::Red;
+		line[1].position = sf::Vector2f(20, -5);
+		line[1].color = sf::Color::Red;
+		_windowBall->draw(line);
+	}
+
 	sf::Vertex line[] =
 	{
 		sf::Vertex(sf::Vector2f(40, 40)),
-		sf::Vertex((sf::Vector2f)(GetMousePos()))
+		sf::Vertex(sf::Vector2f(GetMousePos().x * 80.f / 1920.f, GetMousePos().y * 80 / 1080))
 	};
 
-	if (_idBall == "0")
+	if (_idBall == "1")
 		_windowBall->draw(line, 2, sf::Lines);
+
+	//Test avec shape rect
+	/*
+	if (_idBall == "1")
+	{
+		sf::RectangleShape line(sf::Vector2f(50, 5));
+		line.setPosition(40, 40);
+		line.setFillColor(sf::Color::Red);
+		_windowBall->draw(line);
+	}*/
 }
 
 sf::Vector2i ball::GetMousePos()
