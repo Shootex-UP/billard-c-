@@ -55,7 +55,7 @@ void ball::updatePosition(sf::FloatRect ScreenSpace, float deltatime) {
 	_position = _position + (_velocity * deltatime);
 	_velocity *= 1 - PHYSICS_FRICTION;
 
-	if (_velocity.x < 2.f && _velocity.y < 2.f)
+	if (_velocity.x < 3.f && _velocity.y < 3.f)
 		canShoot = true;
 	else
 		canShoot = false;
