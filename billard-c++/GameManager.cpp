@@ -102,7 +102,7 @@ void GameManager::InitBallPos()
 
 void GameManager::InitBallVel()
 {
-	_balls[0]->SetVel(sf::Vector2f(700,0));
+	_balls[0]->SetVel(sf::Vector2f(10000,0));
 	_balls[1]->SetVel(sf::Vector2f(2500, 250));
 	_balls[3]->SetVel(sf::Vector2f(100, -500));
 }
