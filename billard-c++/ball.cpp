@@ -12,6 +12,8 @@ ball::ball(std::string tileMapPath, std::string idBall): _idBall(idBall)
 
 ball::~ball()
 {
+	_windowBall->close();
+	delete _tileMap;
 }
 
 void ball::DrawBall(Spritesheet* spriteSheet)
