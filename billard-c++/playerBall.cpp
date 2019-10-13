@@ -17,7 +17,7 @@ void playerBall::DrawLine(sf::Vector2i _position)
 	sf::Vertex line[] =
 	{
 		sf::Vertex(sf::Vector2f(40, 40)),
-		sf::Vertex((sf::Vector2f)(GetMousePos()))
+		sf::Vertex(sf::Vector2f(GetMousePos()))
 	};
 
 	if (_idBall == "")
@@ -35,6 +35,6 @@ void playerBall::DrawBall(Spritesheet* spriteSheet)
 sf::Vector2i playerBall::GetMousePos()
 {
 	// get global mouse position
-	sf::Vector2i mousePos = sf::Mouse::getPosition();
+	sf::Vector2i mousePos = sf::Mouse::getPosition(*_windowBall);
 	return mousePos;
 }

@@ -25,8 +25,6 @@ public:
 	~ball();
 
 	virtual void DrawBall(Spritesheet* spriteSheet);
-	void DrawLine(sf::Vector2i _position);
-	sf::Vector2i GetMousePos();
 
 	void UpdateWindow();
 	void SetPos(sf::Vector2f initPos);
