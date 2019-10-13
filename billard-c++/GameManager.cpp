@@ -23,7 +23,8 @@ void GameManager::WindowsUpdate()
 	if (deltaTime >= _framerate) {
 		//std::cout << "Window update " << deltaTime << std::endl;
 		for (int i = 0; i < _ballCount; i++) {
-			_balls[i]->UpdateWindow();
+			if(_balls[i] != nullptr)
+				_balls[i]->UpdateWindow();
 		}
 		_clock.restart();
 	}
@@ -36,19 +37,43 @@ void GameManager::PhysicsUpdate()
 		//std::cout << "Physics update" << deltaTime <<  std::endl;
 		//speed
 		for (int i = 0; i < _ballCount; i++) {
-			_balls[i]->updatePosition(_screenSpace, _physicsDeltatime * _timeScale);
+			if (_balls[i] != nullptr)
+				_balls[i]->updatePosition(_screenSpace, _physicsDeltatime * _timeScale);
 		}
 		//check collision
 		for (int i = 0; i < _ballCount; i++)
 		{
-			for (int j = i + 1; j < _ballCount; j++)
-			{
-				if (_balls[i]->colliding((*_balls[j])))
+
+			if (_balls[i] != nullptr) {
+				for (int j = i + 1; j < _ballCount; j++)
 				{
-					_balls[i]->resolveCollision(_balls[j]);
+					if (_balls[j] != nullptr) {
+						if (_balls[i]->colliding((*_balls[j])))
+						{
+							_balls[i]->resolveCollision(_balls[j]);
+						}
+					}
 				}
 			}
 		}
+
+		//check if fall in hole
+		for (int i = 0; i < _ballCount; i++)
+		{
+			if (_balls[i] != nullptr) {
+				int j = 0;
+				while (!holes[j].contains(_balls[i]->_position)) {
+					j++;
+				}
+				if (j < 6) {
+					//Delete Ball
+					_balls[i]->_windowBall->close();
+					delete _balls[i];
+					_balls[i] = nullptr;
+				}
+			}
+		}
+
 		_physicsClock.restart();
 	}
 }
@@ -111,7 +136,8 @@ void GameManager::DrawAllBalls()
 {
 	for (int i = 0; i < _ballCount; i++)
 	{
-		_balls[i]->DrawBall(_spritesheet);
+		if(_balls[i] != nullptr)
+			_balls[i]->DrawBall(_spritesheet);
 	}
 
 }

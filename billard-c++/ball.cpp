@@ -7,13 +7,14 @@ ball::ball(std::string tileMapPath, std::string idBall): _idBall(idBall)
 {
 	_windowBall = new sf::RenderWindow(sf::VideoMode(_winWidth, _winHeight), _idBall, sf::Style::None);
 	_tileMap = new Tilemap(tileMapPath, 5, 5, 16, 16);
+	_position = sf::Vector2f(1920 / 2, 1080 / 2);
 }
 
 
 ball::~ball()
 {
-	_windowBall->close();
-	delete _tileMap;
+	//
+	//delete _tileMap;
 }
 
 void ball::DrawBall(Spritesheet* spriteSheet)
@@ -66,11 +67,11 @@ void ball::SetVel(sf::Vector2f initVel)
 
 void ball::updatePosition(sf::FloatRect ScreenSpace, float deltatime) {
 	sf::Vector2f nexPos((_position.x + (_velocity.x * deltatime)), (_position.y + (_velocity.y * deltatime)));
-	if ((nexPos.x - _radius < 32 || nexPos.x + _radius > ScreenSpace.width-32) || (nexPos.y - _radius < 0 || nexPos.y + _radius > ScreenSpace.height-32)) {
-		if (nexPos.x - _radius < 32 || nexPos.x + _radius > ScreenSpace.width -32) {
+	if ((nexPos.x  < 0 || nexPos.x  > ScreenSpace.width) || (nexPos.y  < 0 || nexPos.y > ScreenSpace.height)) {
+		if (nexPos.x  < 0 || nexPos.x  > ScreenSpace.width) {
 			_velocity.x *= -1;
 		}
-		else if (nexPos.y - _radius < 32 || nexPos.y + _radius > ScreenSpace.height - 32) {
+		else if (nexPos.y < 0 || nexPos.y  > ScreenSpace.height) {
 			_velocity.y *= -1;
 		}
 		else {

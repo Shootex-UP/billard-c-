@@ -18,6 +18,14 @@ private:
 	playerBall* player;
 	int _ballCount = 7;
 	Spritesheet* _spritesheet;
+	sf::FloatRect holes[6] = {
+		sf::FloatRect(0, 0, 80, 80),//LeftTop
+		sf::FloatRect(1920 / 2 - 20, 0, 40, 40),//MiddleTop
+		sf::FloatRect(1920 - 80, 0, 40, 40),//RightTop
+		sf::FloatRect(1920 - 80, 1080 - 80, 40, 40),//RightTop
+		sf::FloatRect(1920 / 2 - 20, 1080-80, 40, 40),//RightTop
+		sf::FloatRect(0, 1080 - 80, 40, 40)//RightTop
+	};
 
 public:
 	sf::FloatRect _screenSpace = sf::FloatRect(0, 0, 1920, 1080);
