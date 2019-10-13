@@ -92,7 +92,6 @@ int main()
 				if (event.mouseButton.button == sf::Mouse::Left)
 				{
 					gameManager->player->Shoot();
-					std::cout << "SHHOOOOOOOOOOOOOT" << std::endl;
 				}
 			}
 		}

@@ -103,7 +103,6 @@ void GameManager::InitWindows(std::map<std::string, std::string> tileMapPathMap)
 		{
 			player = new playerBall((*current).second, (*current).first);
 			_balls[i] = player;
-			std::cout << i << std::endl;
 		}
 		else
 		{
