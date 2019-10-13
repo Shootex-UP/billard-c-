@@ -14,16 +14,21 @@ playerBall::~playerBall()
 
 void playerBall::DrawLine(sf::Vector2i _position)
 {
-	sf::RectangleShape line(sf::Vector2f(50, 5));
-	line.setPosition(20, 20);
-	_windowBall->draw(line);
+	sf::Vertex line[] =
+	{
+		sf::Vertex(sf::Vector2f(40, 40)),
+		sf::Vertex((sf::Vector2f)(GetMousePos()))
+	};
+
+	if (_idBall == "")
+		_windowBall->draw(line, 2, sf::Lines);
 }
 
 void playerBall::DrawBall(Spritesheet* spriteSheet)
 {
 	_windowBall->clear();
-	DrawLine(GetMousePos());
 	_tileMap->DrawTileMap(spriteSheet, _windowBall);
+	DrawLine(GetMousePos());
 	_windowBall->display();
 }
 

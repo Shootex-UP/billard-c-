@@ -28,16 +28,15 @@ void ball::DrawBall(Spritesheet* spriteSheet)
 void ball::DrawLine(sf::Vector2i _position)
 {
 	//Test avec vertex
-	/*
 	if (_idBall == "1")
 	{
 		sf::VertexArray line(sf::LinesStrip, 2);
-		line[0].position = sf::Vector2f(40, -40);
+		line[0].position = sf::Vector2f(10, -5);
 		line[0].color = sf::Color::Red;
-		line[1].position = (sf::Vector2f)(GetMousePos());//sf::Vector2f(20, -5);
+		line[1].position = sf::Vector2f(20, -5);
 		line[1].color = sf::Color::Red;
 		_windowBall->draw(line);
-	*/
+	}
 
 	sf::Vertex line[] =
 	{
