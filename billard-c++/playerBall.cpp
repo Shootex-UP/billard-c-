@@ -16,8 +16,8 @@ void playerBall::DrawLine(sf::Vector2i _position)
 {
 	sf::Vertex line[] =
 	{
-		sf::Vertex(sf::Vector2f(40, 40)),
-		sf::Vertex(sf::Vector2f(GetMousePos()))
+		sf::Vertex(sf::Vector2f(40, 40), sf::Color::Red),
+		sf::Vertex(sf::Vector2f(GetMousePos()), sf::Color::Red)
 	};
 
 	if (_idBall == "")
@@ -41,5 +41,6 @@ sf::Vector2i playerBall::GetMousePos()
 
 void playerBall::Shoot()
 {
-	SetVel((sf::Vector2f)(GetMousePos()));
+	if(canShoot)
+		SetVel((sf::Vector2f)(GetMousePos() * 4));
 }

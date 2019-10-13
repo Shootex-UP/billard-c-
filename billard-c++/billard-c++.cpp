@@ -55,7 +55,7 @@ int main()
 
 	//Init WinPos
 	gameManager->InitBallPos();
-	gameManager->InitBallVel();
+	//gameManager->InitBallVel();
 
 	//Load Tilemap Billard
 	std::string tileMapPath = GetExePath() + "Assets/sample_pool2.csv";

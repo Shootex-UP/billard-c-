@@ -18,6 +18,8 @@ public:
 	float _radius = 40;
 	float _mass = 10;
 
+	bool canShoot = false;
+
 	Tilemap* _tileMap;
 	sf::RenderWindow* _windowBall;
 
